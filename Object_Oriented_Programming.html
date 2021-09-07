@@ -159,6 +159,66 @@ class person{
         <p>:인스턴스 변수와 관련된 작업을 하는 메서드</p>
         <p>:인스턴스를 생성해야 호출 및 사용할 수 있다.</p>
     </ol>
+
+        <h2><li>오버로딩</li></h2>
+
+        <p>:함수의 매개변수의 개수나 타입이 다르면 함수의 이름이 같아도 다른 함수로 취급한다.</p>
+        <p>:다른 상황에서 같은 기능을 하는 메서드들을 같은 이름으로 설정할 수 있다는 장점이 있다</p>
+        <pre class="prettyprint"><code>
+ public class Main {
+
+	public static void main(String[] args) {
+		int var1=1,var2=2;
+		double var3=3.5,var4=6.5;
+		long var5=99999999999L;
+		long var6=88888888888L;
+		long var7=108888888888L;
+		System.out.println(max(var1,var2));//2
+		System.out.println(max(var3,var4));//6.5
+		System.out.println(max(var5,var6,var7));//108888888888
+
+
+	}
+	//max라는 함수가 오버로딩으로 구별되어 정상적인 컴파일이된다.
+	static int max(int a,int b) {return a>b?a:b;}
+	static double max(double a,double b) {return a>b?a:b;}
+	static long max(long a,long b,long c){
+		if(a>b) {
+			if(c>a)return c;
+			else return a;
+		}
+		else {
+			if(c>b)return c;
+			else return b;
+		}
+
+	}
+}
+        </code></pre>
+          <h2><li>가변인자</li></h2>
+          <p>:함수의 매개변수가 정적이지 않고 동적으로 지정할 수 있는 기능.</p>
+          <p>:타입...변수명으로 설정.</p>
+          <p>:매개변수 중에서 가장 마지막에 선언해주어야 한다.</p>
+          <pre class ="prettyprint"><code>
+ public class Main {
+
+        public static void main(String[] args) {
+
+       		System.out.println(sum(1,2,3,4,5));//15
+       		System.out.println(sum(1,2,3,4,5,6));//21
+
+       	}
+	static int sum(int ...arr) {
+		int ret=0;
+		for(int nxt: arr) {
+			ret+=nxt;
+
+		}
+		return ret;
+	}
+
+}
+          </code></pre>
         </ul>
       </div>
         </div>
