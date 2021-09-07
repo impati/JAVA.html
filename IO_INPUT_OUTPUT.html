@@ -1,0 +1,150 @@
+<!doctype html>
+<html>
+<head>
+  <title>io_input_output</title>
+  <meta charset="utf-8">
+  <link rel="stylesheet" href="background.css">
+  <script src="https://cdn.rawgit.com/google/code-prettify/master/loader/run_prettify.js?skin=선택한 스타일 이름"></script>
+</head>
+<body>
+<div class ="main">
+    <div class="left">
+    </div>
+    <div class="median">
+
+      <div class="upper">
+
+        </div>
+        <div class="content">
+          <h1>IO_INPUT_OUTPUT</h1>
+          <ul>
+            <li><h2>입력</h2></li>
+            <ul>
+              <li> <h3>SCANNER를 이용한 입력</h3></li>
+                <p>1.import java.util.Scanner 선언</p>
+                <p>2.클래스 안에서 Sanner 객체를 형식에 맞게 생성한다.</p>
+                <p>3.자료형에 맞는 멤버함수를 호출하여 반환받아 변수 저장한다.</p>
+                <p>4.메인 함수에서 close()를 반드시 호출해준다.</p>
+
+
+            <pre class ="prettyprint"><code>
+     import java.util.Scanner;
+
+     public class Main {
+
+	      public static Scanner cin = new Scanner(System.in);
+	      public static void main(String[] args) {
+
+	            	int n = cin.nextInt();
+	             	double d = cin.nextDouble();
+
+	            	String s = cin.next();//문자열 공백 기준
+	             	String str = cin.nextLine();//개행 기준.
+
+	            	char ch =cin.next().charAt(0);
+	             	boolean flag=cin.nextBoolean();
+
+	            	cin.close();
+
+	}
+
+}
+  </code></pre>
+
+              <li> <h3>BufferedReader를 이용한 입력</h3></li>
+                <p>1.java.io.BufferedReader , java.io.InputStreamReader 와 throws IOException 선언</p>
+                <p>2.클래스 안에서 BufferedReader 객체를 형식에 맞게 생성한다.</p>
+                <p>3.자료형에 맞는 멤버함수를 호출하여 반환받아 변수 저장한다.</p>
+                <p>4.메인 함수에서 close()를 반드시 호출해준다.</p>
+                <pre class ="prettyprint"><code>
+    import java.io.BufferedReader;
+    import java.io.IOException;
+    import java.io.InputStreamReader;
+     //훨씬 빠른 입력.
+     public class Main {
+
+        public static BufferedReader cin = new BufferedReader(new InputStreamReader(System.in));
+        public static void main(String[] args) throws IOException {
+
+              		//cin.readLine()은 개행기준으로 입력받는다.
+              		int n = Integer.parseInt(cin.readLine());
+              		double d = Double.parseDouble(cin.readLine());
+              		String str = cin.readLine();
+
+              		String []s = str.split(" "); //개행단위로 입력받고 구분문자 기준으로 분리하여 다룰 수 있다.
+
+              		cin.close();
+
+              	}
+      }
+      </code></pre>
+
+                </ul>
+
+                <li><h2>출력</h2></li>
+                <ul>
+                  <li><h3>System.out.println()를 이용한 출력</h3></li>
+                  <p>1.별도의 선언이 필요가 없다.</p>
+                  <p>2.System.out.println(변수)</p>
+                  <p>3.System.out.print(변수)</p>
+                  <pre class ="prettyprint"><code>
+    public class Main {
+
+	 public static void main(String[] args) {
+
+	  	int var = 10;
+	        String s ="impati";
+  		double pi=3.14;
+  		//개행 포함 출력.
+  		System.out.println(var);
+  		System.out.println(s);
+  		System.out.println(pi);
+  		//개행 미포함 출력
+  		System.out.print(var);
+  		System.out.print(s);
+  		System.out.print(pi);
+	}
+}
+        </code></pre>
+                  <li><h3>BufferedWriter를 이용한 출력</h3></li>
+                    <p>1.java.io.BufferedWriter , java.io.OutputStreamWriter 와 throws IOException 선언</p>
+                    <p>2.클래스 안에서 BufferedWriter 객체를 형식에 맞게 생성한다.</p>
+                    <p>3.자료형에 맞는 멤버함수를 호출하여 반환받아 변수 저장한다.</p>
+                    <p>4.메인 함수에서 close()를 반드시 호출해준다.</p>
+                    <pre class ="prettyprint"><code>
+  import java.io.BufferedWriter;
+  import java.io.IOException;
+  import java.io.OutputStreamWriter;
+  //빠른 출력.
+  public class Main {
+  	public static BufferedWriter cout = new BufferedWriter(new OutputStreamWriter(System.out));
+  	public static void main(String[] args) throws IOException {
+
+  		int var = 10;
+  		String s= "impati";
+  		double pi = 3.14;
+  		//write함수에 대해서 아직 잘 모른다. 정수나 실수일 때 +""를 추가해주어야 출력이된다.
+  		cout.write(var+"");
+  		cout.write(s);
+  		cout.write(pi+"\n");//개행 추가 출력.
+
+  		cout.close();
+  	}
+  }</code></pre>
+                </ul>
+
+          </ul>
+
+
+        </div>
+        <div class="bound">
+        </div>
+
+
+    </div>
+    <div class ="right">
+    </div>
+  </div>
+</body>
+
+</html>

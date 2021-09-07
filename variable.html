@@ -1,0 +1,94 @@
+<!doctype html>
+<html>
+<head>
+  <title>variable</title>
+  <meta charset="utf-8">
+  <link rel="stylesheet" href="background.css">
+
+  </head>
+  <script src="https://cdn.rawgit.com/google/code-prettify/master/loader/run_prettify.js?skin=선택한 스타일 이름"></script>
+  <body>
+  <div class ="main">
+      <div class="left">
+      </div>
+      <div class="median">
+
+        <div class="upper">
+
+          </div>
+          <div class="content">
+            <h1>VARIABLE</h1>
+            <div>
+              <h3>변수란,  "하나의 값을 저장할 수 있는 메모리 영역"</h3>
+              <ul>
+                <li><strong>변수의 선언과 초기화</strong></li>
+
+              <pre class="prettyprint"><code>
+    public class Main{
+        public static void main(String args[]){
+                int var1; //선언
+          	int var2 = 0; //선언과 동시에 초기화
+        	}
+        }
+          </code></pre>
+            <li><h4>변수의 타입</h4></li>
+              <ul>
+                <li>기본형</li>
+                  <ul style= padding:25px>
+                    <li>논리형(boolean)   1byte</li>
+                    <p>->true,false를 값으로 하는 자료형. 조건식,논리식에 사용한다.</p>
+                    <li>문자형(char)   1byte </li>
+                    <p>->문자하나를 저장하는 자료형.<p>
+                    <li>정수형(int,long) (4byte,8byte)</li>
+                    <p>->정수를 다루는 자료형. int는 약 -21억~ 21억 범위의 값을 가질 수 있다.</p>
+                    <p>->long은 (-2^63) ~ (+2^63-1) 의 값을 가진다.</p>
+                    <li>실수형(float,double)(4byte,8byte)</li>
+                    <p>실수형 자료형 float의 정밀도는 7자리이며 double의 정밀도는 15자리이다.</p>
+                  </ul>
+                  <pre class="prettyprint"><code>
+ public class backjon {
+       public static void main(String[] args)  {
+    	    boolean flga = false;// or true
+            char ch = 'h'; //문자 한개.
+            String s = "impati";//문자가 여러개 ==문자열.
+            int value1 = 8;
+             // long인 경우 리터럴 접미사를 붙여주어야 한다.
+            long  vlaue2 = 11987654321L;// int 범위를 벗어난 값을 넣을 때 사용.
+             // 부동소수 왠만하면 double를 사용하자.
+            double var= 9.87654321;
+          }
+}</code></pre>
+                  <li>참조형</li>
+                    <ul style =padding:25px><li>객체의 주소를 저장하는 변수타입</li>
+                      <li>객체를 공부할 때 다시.</li>
+                    </ul>
+
+              </ul>
+            <li><h4>상수</h4></li>
+            <p>:  선언할 때 초기화를 하고 값을 변경할 수 없는 메모리공간.</p>
+
+            <pre class="prettyprint"><code>
+     public class Account {
+          public static void main(String[] args)  {
+               	final int SIZE = 101;
+              	//final 키워드를 통해서 선언
+              	//상수는 대게 모두 대문자로 선언하고 사용한다.
+              	final double PI = 3.14;
+              }
+          }
+        </code></pre>
+              </ul>
+            </div>
+
+          </div>
+          <div class="bound">
+          </div>
+
+
+      </div>
+      <div class ="right">
+      </div>
+    </div>
+  </body>
+
+</html>

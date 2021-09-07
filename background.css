@@ -1,0 +1,36 @@
+html ,body {
+   height: 100%;
+   margin : 0;
+   font-family:'Times New Roman';
+}
+div.main{
+  display:grid;
+  grid-template-columns:1fr 3fr 1fr;
+  height:100%;
+}
+div.median {
+  display:grid;
+  grid-template-rows:1fr 100fr 1fr;
+  height:100%;
+}
+div.left,div.right,div.upper,div.bound{
+  background-color :#E6FFE6	;
+}
+div.content h1{
+  text-align:center;
+  font-size:500%;
+  border-bottom:1px solid black;
+  margin:0;
+  padding:20px;
+}
+div.content div{
+    margin-block-start:30px;
+    padding-inline-start: 50px;
+}
+pre.prettyprint {
+  margin:20px;
+  font-size:11pt;
+  line-height:1.5em;
+  border-color:#ffffff;
+  background-color: #ffffff;
+}

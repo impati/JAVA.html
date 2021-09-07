@@ -1,0 +1,175 @@
+<!doctype html>
+<html>
+<head>
+  <title>Object_Oriented_Programming</title>
+  <meta charset="utf-8">
+  <link rel="stylesheet" href="background.css">
+<script src="https://cdn.rawgit.com/google/code-prettify/master/loader/run_prettify.js?skin=선택한 스타일 이름"></script>
+</head>
+<body>
+<div class ="main">
+    <div class="left">
+    </div>
+    <div class="median">
+
+      <div class="upper">
+
+        </div>
+        <div class="content">
+        <h1>객체지향프로그래밍</h1>
+        <div>
+        <ul>
+          <li><h2>객체지향</h2></li>
+          <ul><li><h3>프로그램을 수 많은 객체라는 기본단위로 나누고 다루는 설계방법</h3></li></ul>
+          <li><h2>객체</h2></li>
+          <ul><li><h3>속성(변수)과 기능(메소드)을 갖는 집합.그러한 기능과 속성을 가지고 메모리에 생성되고 존재하는 것</h3></li></ul>
+          <li><h2>클래스</h2></li>
+          <ul><li><h3>서로 관련이 있는 변수와 메소드를 묶어놓은 것. 또는 객체를 정의해놓은 것</h3></li>
+          <li><h3>객체를 생성하는데 쓰인다.</h3></li>
+          <li><h3>데이터와 함수의 결합</h3></li>
+          </ul>
+          <li><h2>인스턴스</h2></li>
+          <ul><li><h3>클래스로 객체를 만드는 과정이 인스턴스화 과정이며 클래스로 부터 만들어진 객체를 인스턴스라고한다.</h3></li>
+          <li><h3>객체는 이러한 인스턴스들을 모두 포괄하는 의미를 갖는다</h3></li>
+          </ul>
+          <li><h2>인스턴스의 생성</h2></li>
+          <ul><li><h3>참조형 변수를 이용하여 인스턴스를 생성하고 사용한다.</h3></li></ul>
+          <pre class ="prettyprint"><code>
+class person{
+  	int age,cm,kg;
+  	//나이 ,키,몸무게
+  }
+  public class Main {
+      public static void main(String[] args)  {
+      	//클래스 명 변수명 = new 클래스명();
+      	person p = new person();
+      	//p는 참조형 변수
+      	//p를 이용하여 인스턴스에 생성한다.
+      	//인스턴스는 이러한 참조변수가 반드시 필요하며 타입이 일치하여야 한다.
+
+      	p.age=20;
+      	p.cm=175;
+      	p.kg=70;
+      	System.out.println(p.age+" "+p.cm+" "+p.kg);
+      	//출력 결과
+      	//20 170 60
+      }
+  }
+</code></pre>
+        <li><h2>객체 배열</h2></li>
+        <ul><li><h3>참조형 변수를 배열로 선언한 다음 인스턴스를 생성해준다.</h3></li></ul>
+        <pre class ="prettyprint"><code>
+   class person{
+         int age,cm,kg;
+         //나이 ,키,몸무게
+    }
+   public class Main {
+         public static void main(String[] args)  {
+              	//참조형 변수를 배열로 선언.
+              	person []p = new person[10];
+              	for(int i=0;i<<span>10;i++) {
+                      //i번째 인스턴스 생성.
+                      p[i] =  new person();
+
+                      //적당한 값으로 초기화.
+                      p[i].age =i+20;
+                      p[i].cm  =160+i;
+                      p[i].kg  =50+i;
+
+              	}
+              	for(int i=0;i<<span>10;i++) {
+              		System.out.println(p[i].age+" "+p[i].cm+" "+p[i].kg);
+              	}
+              	//출력결과
+              	/*
+                20 160 50
+                21 161 51
+                22 162 52
+                23 163 53
+                24 164 54
+                25 165 55
+                26 166 56
+                27 167 57
+                28 168 58
+                29 169 59
+              	 */
+              }
+          }
+</code></pre>
+
+      <li><h2>변수</h2></li>
+
+      <ol>
+        <p><h3><li>인스턴스 변수</li></h3></p>
+        <p>:클래스의 인스턴스를 생성할 때 만들어진다.</p><p>:인스턴스는 독립적인 메모리공간을 가지므로 인스턴스 변수는 서로 다른 값을 가질 수 있다.</p>
+        <p><h3><li>클래스 변수</li></h3></p>
+        <p>:static 키워드로 선언</p><p>:클래스 변수는 모든 인스턴스들이 공유할 수 있는 변수이다.</p>
+        <p>:인스턴스 변수와는 달리 인스턴스를 생성하지 않고도 사용할 수 있으며 단 한번만 생성되고 소멸된다.</p>
+        <p>:사용하는 방법은 클래스.클래스변수이다.</p>
+        <p><h3><li>지역 변수</li></h3></p>
+        <p>클래스 메서드 내에 생성되고 클래스 메서드 내에서 소멸되는 변수. {}을 벗어나면 소멸되는 특징을 갖는다.</p>
+      </ol>
+
+      <li><h2>메서드</h2></li>
+      <ol>
+        <p><h3><li>메서드란 ?</li></h3></p>
+      <p>:특정 기능을 수행하는 코드들의 집합.</p>
+      <p>:재사용성이 높으며 프로그램을 구조화 할 수 있다.</p>
+      <p>:클래스 내부에 선언</p>
+        <p><h3><li>메서드 선언부</li></h3></p>
+        <p>:반환타입 메서드이름 (매개변수)</p>
+        <pre class="prettyprint"><code>
+//반환타입 메서드이름 (매개변수);
+    int sum(int a,int b)
+//반환타입 메서드 이름() 매개변수,인자가 없을 수도 있다.
+    void print()
+//반환타입 메세드 이름(매개변수)
+    double calculation(double a,double b)
+        </code></pre>
+        <p><h3><li>메서드 구현부</li></h3></p>
+        <p>:특정 기능을 수행할 코드</p>
+        <pre class="prettyprint"><code>
+    int sum(int a,int b) {
+        return a+b;//반환 값 //구현부
+    }
+    void print() {
+        System.out.println("impait");//구현부
+    }
+    double calculation(double a,double b) {
+        return a*b;//반환값이 반환타입과 일치해야한다.//구현부
+    }
+        </code></pre>
+        <p><h3><li>기본형 매개변수</li></h3></p>
+        <p>:매개변수를 기본형으로 선언시 값만을 전달한다</p>
+        <p>:메서드 외부에서 전달한 변수에 대해서 메서드 내부에서는 접근하지못한다.</p>
+        <p>:기본 자료형,String에 해당</p>
+        <p><h3><li>참조형 매개변수</li></h3></p>
+        <p>:매개변수를 참조형으로 선언시 주소를 전달한다</p>
+        <p>:메서드 외부에서 전달한 변수에 대해서 접근할 수 있다 따라서 값을 변경할 수 있다.</p>
+        <p>:배열,인스턴스에 해당</p>
+
+        <p><h3><li>클래스 메서드</li></h3></p>
+        <p>:static 키워드로 선언하는 메서드</p>
+        <p>:인스턴스나 인스턴스 메서드를 사용하지 않는 메서드를 클래스 메서드로 정의한다.</p>
+        <p>:모든 인스턴스가 공동으로 사용하는 메서드를 클래스 메서드로 선언한다.</p>
+        <p>:인스턴스를 생성하지 않아도 호출할 수 있다.</p>
+        <p>:클래스 메서드는 인스턴스 변수,인스턴스 메서드를 사용할 수 없다.</p>
+
+        <p><h3><li>인스턴스 메서드</li></h3></p>
+        <p>:인스턴스 변수와 관련된 작업을 하는 메서드</p>
+        <p>:인스턴스를 생성해야 호출 및 사용할 수 있다.</p>
+    </ol>
+        </ul>
+      </div>
+        </div>
+        <div class="bound">
+        </div>
+
+
+    </div>
+    <div class ="right">
+    </div>
+  </div>
+</body>
+
+</html>

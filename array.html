@@ -1,0 +1,131 @@
+<!doctype html>
+<html>
+<head>
+  <title>array</title>
+  <meta charset="utf-8">
+  <link rel="stylesheet" href="background.css">
+<script src="https://cdn.rawgit.com/google/code-prettify/master/loader/run_prettify.js?skin=선택한 스타일 이름"></script>
+
+</head>
+<body>
+<div class ="main">
+    <div class="left">
+    </div>
+    <div class="median">
+
+      <div class="upper">
+
+        </div>
+        <div class="content">
+          <h1>ARRAY</h1>
+          <div>
+          <h2>배열이란 &nbsp"<u>같은 타입</u>의 변수를 묶어서 다루는 자료구조"</h2>
+          <ul>
+          <li><h3>배열의 선언과 생성</h3></li>
+          <pre class ="prettyprint"><code>
+  public class Main {
+
+	public static void main(String[] args)  {
+		//배열의 선언.
+		//자료형 []배열이름 = new 자료형[크기].
+		int []array = new int[100];
+		double []da = new double[100];
+		String []s = new String[100];
+
+	}
+  }
+
+          </code></pre>
+
+          <li><h3>배열의 크기와 인덱스</h3></li>
+          <pre class ="prettyprint"><code>
+   public class Main {
+
+      public static void main(String[] args)  {
+        //배열의 선언.
+        //자료형 []배열이름 = new 자료형[크기].
+      	int []Arr = new int[100];
+      	//배열의 길이.
+      	System.out.println(Arr.length);
+      	//배열의 인덱스.. 0부터 array.lenght-1 까지의 인덱스를 가지고 이를통해 배열에 접근한다.
+      	for(int i=0;i<<span>Arr.length;i++) {
+          System.out.println(Arr[i]);
+    	}
+      //인덱스 0이 배열의 첫번째 값임을 유의한다.
+  }
+          </span></code></pre>
+          <li><h3>다차원 배열</h3></li>
+          <pre class="prettyprint" data-ke-language="java"><code>
+public class Account {
+    public static void main(String[] args)  {
+    	int [][]map = new int[10][10];//  디폴트 값이 0이다.
+    	int [][]arr = new int[][] {{0,0},{0,0}};//이런식으로 초기화도 가능하다.
+
+    	for(int i=0;i<<span>10;i++) {
+	      for(int k=0;k<<span>10;k++) {
+		    System.out.print(map[i][k]);//2차원배열에 접근하고 사용하기.
+		}
+	      System.out.println();
+	}
+    	//출력 결과
+ /*
+    	0000000000
+    	0000000000
+    	0000000000
+    	0000000000
+    	0000000000
+    	0000000000
+    	0000000000
+    	0000000000
+    	0000000000
+    	0000000000
+ */
+    	// 3차원배열 .. 4차원배열... 등 선언이 가능하다.
+    	int [][][]three_table = new int[10][10][10];
+
+    	// 가변배열 => 조금 더 자유로운 형태
+    	//열에 대한 크기를 다르게 설정할 수 있음.
+    	int [][]pointer = new int[10][];
+
+    	for(int i=0;i<<span>10;i++)
+    	    pointer[i] = new int[i];
+
+    	for(int i=0;i<<span>10;i++) {
+            for(int k=0;k<<span>pointer[i].length;k++) {
+                 System.out.print(pointer[i][k]);
+            }
+            System.out.println();
+        }
+    	//출력결과
+/*
+    	0
+    	00
+    	000
+    	0000
+    	00000
+    	000000
+    	0000000
+    	00000000
+    	000000000
+*/
+    }
+}
+          </code></pre>
+          <li><h3>배열에 관한 메서드</h3></li>
+          continue
+
+          </ul>
+
+          </div>
+        </div>
+        <div class="bound">
+        </div>
+
+
+    </div>
+    <div class ="right">
+    </div>
+  </div>
+</body>
+
+</html>
