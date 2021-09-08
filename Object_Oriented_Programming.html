@@ -19,6 +19,7 @@
         <h1>객체지향프로그래밍</h1>
         <div>
         <ul>
+
           <li><h2>객체지향</h2></li>
           <ul><li><h3>프로그램을 수 많은 객체라는 기본단위로 나누고 다루는 설계방법</h3></li></ul>
           <li><h2>객체</h2></li>
@@ -56,6 +57,7 @@ class person{
       }
   }
 </code></pre>
+<br>  <br>  <br>  <br>
         <li><h2>객체 배열</h2></li>
         <ul><li><h3>참조형 변수를 배열로 선언한 다음 인스턴스를 생성해준다.</h3></li></ul>
         <pre class ="prettyprint"><code>
@@ -96,7 +98,7 @@ class person{
               }
           }
 </code></pre>
-
+<br>  <br>  <br>  <br>
       <li><h2>변수</h2></li>
 
       <ol>
@@ -109,7 +111,7 @@ class person{
         <p><h3><li>지역 변수</li></h3></p>
         <p>클래스 메서드 내에 생성되고 클래스 메서드 내에서 소멸되는 변수. {}을 벗어나면 소멸되는 특징을 갖는다.</p>
       </ol>
-
+<br>  <br>  <br>  <br>
       <li><h2>메서드</h2></li>
       <ol>
         <p><h3><li>메서드란 ?</li></h3></p>
@@ -159,7 +161,7 @@ class person{
         <p>:인스턴스 변수와 관련된 작업을 하는 메서드</p>
         <p>:인스턴스를 생성해야 호출 및 사용할 수 있다.</p>
     </ol>
-
+<br>  <br>  <br>  <br>
         <h2><li>오버로딩</li></h2>
 
         <p>:함수의 매개변수의 개수나 타입이 다르면 함수의 이름이 같아도 다른 함수로 취급한다.</p>
@@ -195,10 +197,12 @@ class person{
 	}
 }
         </code></pre>
+        <br>  <br>  <br>  <br>
           <h2><li>가변인자</li></h2>
           <p>:함수의 매개변수가 정적이지 않고 동적으로 지정할 수 있는 기능.</p>
           <p>:타입...변수명으로 설정.</p>
           <p>:매개변수 중에서 가장 마지막에 선언해주어야 한다.</p>
+          <p>:가변인자를 사용한 메서드는 오버로딩하지 않는다.</p>
           <pre class ="prettyprint"><code>
  public class Main {
 
@@ -219,7 +223,72 @@ class person{
 
 }
           </code></pre>
+          <br>  <br>  <br>  <br>
+          <h2><li>생성자</li></h2>
+          <p>:인스턴스가 생성될 때 호출되는 인스턴스 초기화 메서드</p>
+          <p>:인스턴스 변수 초기화 작업을 생성자에서 한다.</p>
+          <p>:생성자이름은 클래스이름과 동일해야한다.</p>
+          <pre class ="prettyprint"><code>
+  class myclass{
+	int var;//인스턴스 변수
+	//생성자 역시 오버로딩이 가능하다.
+	//매개변수가 없는 생성자
+	myclass(){
+		var = 10;
+	}
+	//매개변수가 있는 생성자.
+	myclass(int value){
+		var=value;
+	}
+	//생성자를 통한 인스턴스 복사.
+	myclass(myclass s3){
+	    var = s3.var;
+	}
+ }
+ public class jp {
+
+	public static void main(String[] args) {
+
+		myclass s1 = new myclass();
+		myclass s2 = new myclass(20);
+		myclass s3 = new myclass(s2);
+		System.out.println(s1.var);//10
+		System.out.println(s2.var);//20
+		System.out.println(s3.var);//20
+
+	}
+
+ }
+          </code></pre>
+          <p>:this()생성자: 같은 클래스의 다른 생성자를 호출할 때 사용한다.</p>
+          <p>:this:인스턴스 자신을 가르키는 참조변수. 인스턴스변수를 구별해야할 때 사용한다.</p>
+          <br>  <br>  <br>  <br>
+          <h2><li>초기화</li></h2>
+          <ul><p><li>명시적 초기화</li></p>
+            <p>:변수 선언과 동시에 초기화</p>
+            <p><li>초기화 블럭</li></p>
+            <p>*인스턴스 초기화 블럭:인스턴스 변수를 초기화 하는 블럭.{초기화}</p>
+            <p>*클래스 초기화 블럭:클래스 변수를 초기화 하는 블럭 클래스 생성시 단 한번 호출된다.static{초기화}</p>
+            <li>초기화 순서</li>
+            :기본값 -> 명시적 초기화 -> 초기화 블럭 ->생성자를 통한 초기화
         </ul>
+        <pre class ="prettyprint"><code>
+ class myclass{
+	int var=5;//명시적 초기화
+	static int total=5;//명시적 초기화
+	static { total =10;/*클래스 초기화 블럭*/}
+	{ var =10; /*인스턴스 초기화 블럭*/}
+
+	myclass(int value){//생성자를 통한 초기화
+		var =value;
+	}
+
+
+ }
+
+        </code></pre>
+      </ul>
+        <br>  <br>  <br>  <br>
       </div>
         </div>
         <div class="bound">
