@@ -1,0 +1,70 @@
+<!doctype html>
+<html>
+<head>
+  <title>Object_Oriented_Programming Ⅱ</title>
+  <meta charset ="utf-8">
+  <link rel="stylesheet" href="background.css">
+  <script src="https://cdn.rawgit.com/google/code-prettify/master/loader/run_prettify.js?skin=선택한 스타일 이름"></script>
+  </head>
+<body>
+<div class ="main">
+  <div class ="left">
+    </div>
+  <div class ="median">
+    <div class ="upper">
+      </div>
+    <div class ="content">
+      <h1>객체지향프로그래밍 Ⅱ</h1>
+      <div>
+      <ul>
+        <li><h2>상속</h2></li>
+        <p>:기존의 클래스를 이용하여 새로운 클래스를 만드는 것</p>
+        <p>:extends 키워드를 통해 상속 받는다.</p>
+        <p>:상속해주는 클래스를 <span style ="color:red" >조상,부모,기반클래스</span>라고한다</p>
+        <p>:상속받는 클래스를<span style ="color:red">자식,하위 클래스</span>라고한다</p>
+        <p>:상속받은 클래스는 부모클래스의 멤버들을 모두 가지고있다.</p>
+        <pre class ="prettyprint"><code>
+ class Parent_class{
+	 int v1,v2,v3;
+	 Parent_class(){
+		 v1=1;v2=2;v3=3;
+	 }
+ }
+ class Child_class extends Parent_class{
+	 int v4,v5;
+	 Child_class(){
+		 v4=4;v5=5;
+	 }
+ }
+ public class Main {
+
+	 public static void main(String[] args) {
+		 Child_class s = new  Child_class();
+		 //자식 클래스 인스턴스에서 상속받은 부모클래스 멤버를 가지고 있는것을 볼 수 있다.
+		 System.out.println(s.v1);//1
+		 System.out.println(s.v2);//2
+		 System.out.println(s.v3);//3
+		 System.out.println(s.v4);//4
+		 System.out.println(s.v5);//5
+	 }
+ }
+
+        </code></pre>
+
+
+
+
+        </ul>
+        </div>
+      </div>
+    <div class ="bound">
+    </div>
+  </div>
+  <div class ="right">
+    </div>
+  </div>
+
+  </body>
+
+
+</html>
