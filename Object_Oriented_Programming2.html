@@ -50,8 +50,86 @@
  }
 
         </code></pre>
+        <h2><li>오버라이딩</li></h2>
+        <p>:부모 클래스로부터 상속받은 메서드의 내용을 수정하여 사용하는 것을 오버라이딩이라고 한다.</p>
+        <p>:오버라이딩은 부모 클래스의 메서드와 이름,매개변수,반환타입 <span style="color:red">모두 일치</span>해야한다.</p>
+        <p>:부모 클래스의 메서드보다 좁은 접근 제어자를 지정할 수 있지만 더 많은 수의 예외를 둘 수 없다.</p>
+          <pre class ="prettyprint"><code>
+ class Parent_class{
+  	void print() {
+ 		 System.out.println("Parent_class");
+	 }
+ }
+ class Child_class extends Parent_class{
+	 //상속받은 print메서드를 오버라이딩
+	 void print() {
+		 System.out.println("Child_class");
+	 }
+ }
+ public class Main {
 
+	 public static void main(String[] args) {
+		 Child_class s = new  Child_class();
 
+		 s.print();//Child_class
+	 }
+ }
+
+          </code></pre>
+          <h2><li>super 와 super()</li></h2>
+          <ol>
+            <li><h3>super</h3></li>
+            <p>super키워드는 부모 클래스의 멤버를 참조하는데 사용되는 참조변수</p>
+            <p>같은 이름으로 정의한 변수나 메서드에 대해 super키워드로 구별하여 사용할 수 있다.</p>
+            <li><h3>super()</h3></li>
+            <p>부모 클래스이 생성자를 호출하는데 사용된다</p>
+            <p>상속 받은 자손 클래스에서 이러한 부모클래스를 호출하지않으면 컴파일러가 자동으로 super()를 호출한다</p>
+            <p>자손 클래스는 부모클래스의 생성자를 호출할 의무가 있다.</p>
+              <pre class ="prettyprint"><code>
+   class Parent_class{
+	 int v1,v2,v3;
+	 Parent_class(){
+		 v1=1;v2=2;v3=3;
+	 }
+	 Parent_class(int a,int b,int c){
+		 v1=a;v2=b;v3=c;
+	 }
+ }
+ class Child_class extends Parent_class{
+	 int w1,w2,w3;
+	 int v1,v2,v3;
+	 Child_class(){
+		 super(10,100,1000);//부모 생성자 호출
+		 v1=-10;v2=-100;v3=-1000;
+	 }
+	 void print() {
+		 System.out.println(this.v1);
+		 System.out.println(this.v2);
+		 System.out.println(this.v3);
+		 System.out.println(super.v1);
+		 System.out.println(super.v2);
+		 System.out.println(super.v3);
+	 }
+ }
+ public class jp {
+
+	 public static void main(String[] args) {
+		 Child_class s = new  Child_class();
+		 s.print();
+                  /*
+                  출력결과
+                  -10
+                  -100
+                  -1000
+                  10
+                  100
+                  1000
+                  */
+	 }
+ }
+
+              </code></pre>
+          </ol>
 
 
         </ul>
