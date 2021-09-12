@@ -18,11 +18,13 @@
       <div>
       <ul>
         <li><h2>상속</h2></li>
-        <p>:기존의 클래스를 이용하여 새로운 클래스를 만드는 것</p>
-        <p>:extends 키워드를 통해 상속 받는다.</p>
-        <p>:상속해주는 클래스를 <span style ="color:red" >조상,부모,기반클래스</span>라고한다</p>
-        <p>:상속받는 클래스를<span style ="color:red">자식,하위 클래스</span>라고한다</p>
-        <p>:상속받은 클래스는 부모클래스의 멤버들을 모두 가지고있다.</p>
+        <ul>
+        <li><p>기존의 클래스를 이용하여 새로운 클래스를 만드는 것</p></li>
+        <li><p>extends 키워드를 통해 상속 받는다.</p></li>
+        <li><p>상속해주는 클래스를 <span style ="color:red" >조상,부모,기반클래스</span>라고한다</p></li>
+        <li><p>상속받는 클래스를<span style ="color:red">자식,하위 클래스</span>라고한다</p></li>
+        <li><p>상속받은 클래스는 부모클래스의 멤버들을 모두 가지고있다.</p></li>
+      </ul>
         <pre class ="prettyprint"><code>
  class Parent_class{
 	 int v1,v2,v3;
@@ -50,10 +52,10 @@
  }
 
         </code></pre>
-        <h2><li>오버라이딩</li></h2>
-        <p>:부모 클래스로부터 상속받은 메서드의 내용을 수정하여 사용하는 것을 오버라이딩이라고 한다.</p>
-        <p>:오버라이딩은 부모 클래스의 메서드와 이름,매개변수,반환타입 <span style="color:red">모두 일치</span>해야한다.</p>
-        <p>:부모 클래스의 메서드보다 좁은 접근 제어자를 지정할 수 있지만 더 많은 수의 예외를 둘 수 없다.</p>
+        <h2><li>오버라이딩</li></h2><ul>
+        <li><p>부모 클래스로부터 상속받은 메서드의 내용을 수정하여 사용하는 것을 오버라이딩이라고 한다.</p></li>
+        <li><p>오버라이딩은 부모 클래스의 메서드와 이름,매개변수,반환타입 <span style="color:red">모두 일치</span>해야한다.</p></li>
+        <li><p>부모 클래스의 메서드보다 좁은 접근 제어자를 지정할 수 있지만 더 많은 수의 예외를 둘 수 없다.</p></li></ul>
           <pre class ="prettyprint"><code>
  class Parent_class{
   	void print() {
@@ -79,12 +81,14 @@
           <h2><li>super 와 super()</li></h2>
           <ol>
             <li><h3>super</h3></li>
+
             <p>super키워드는 부모 클래스의 멤버를 참조하는데 사용되는 참조변수</p>
             <p>같은 이름으로 정의한 변수나 메서드에 대해 super키워드로 구별하여 사용할 수 있다.</p>
             <li><h3>super()</h3></li>
             <p>부모 클래스이 생성자를 호출하는데 사용된다</p>
             <p>상속 받은 자손 클래스에서 이러한 부모클래스를 호출하지않으면 컴파일러가 자동으로 super()를 호출한다</p>
             <p>자손 클래스는 부모클래스의 생성자를 호출할 의무가 있다.</p>
+
               <pre class ="prettyprint"><code>
    class Parent_class{
 	 int v1,v2,v3;
@@ -132,6 +136,18 @@
           </ol>
 
 
+
+
+
+          <li><h2>제어자</h2></li>
+          <ul><li>제어자란 클래스,변수,메서드의 선언부에 함께 사용되어 부가적인 의미를 부여한다</li>
+          <li>하나의 대상에 대해서 여러 제어자를 조합하여 사용할 수 있다.</li></ul>
+          <ol>
+            <li><h3>staic</h3></li>
+            <li><h3>final</h3></li>
+            <li><h3>abstract</h3></li>
+            <li><h3>access modifier</h3></li>
+          </ol>
         </ul>
         </div>
       </div>
