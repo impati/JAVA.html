@@ -144,28 +144,103 @@
           <li>하나의 대상에 대해서 여러 제어자를 조합하여 사용할 수 있다.</li></ul>
           <ol>
             <li><h3>staic</h3></li>
-            <ul><li>클래스의 공유변수,공유 메서드로써 static키워드로 선언시 인스턴스 생성없이도 호출가능.</li></ul>
+            <ul><li><p>클래스의 공유변수,공유 메서드로써 static키워드로 선언시 인스턴스 생성없이도 호출가능.</p></li></ul>
             <li><h3>final</h3></li>
             <ul><li>변경될 수 없는 의미를 가지고 있다.변수에 사용되면 상수가 된다.</li>
-              <li>메서드에 사용되면 오버라이딩할 수 없다</li>
-              <li>클래스에 사용되면  자손클래스를 정의할 수 없다.</li>
+              <li><p>메서드에 사용되면 오버라이딩할 수 없다</p></li>
+              <li><p>클래스에 사용되면  자손클래스를 정의할 수 없다.</p></li>
             </ul>
             <li><h3>abstract</h3></li>
-            <ul><li>메서드의 선언부만 작성하고 실제 내용은 구현하지 않는 추상메서드를 선언하는데 사용한다</li>
-              <li>클래스에 abstract 제어자가 있으면 인스턴스를 생성할 수 없다. </li>
+            <ul><li><p>메서드의 선언부만 작성하고 실제 내용은 구현하지 않는 추상메서드를 선언하는데 사용한다</p></li>
+              <li><p>클래스에 abstract 제어자가 있으면 인스턴스를 생성할 수 없다. </p></li>
             </ul>
             <li><h3>access modifier</h3></li>
             <ul>
-            <li>클래스의 멤버 또는 클래스에 사용되며 외부에서 접근하지 못하도록 하는 역할을 한다.</li>
-            <li>public:접근제한이 없다</li>
-            <li>protected:같은 패키지 내에서 또는 다른 패키지의 자손클래스에서 접근이 가능하다</li>
-            <li>default:같은 패키지 내에서 접근이 가능하다</li>
-            <li>private:같은 클래스 내에서만 접근이 가능하다.</li>
-            <li>접근 제어자를 사용하는 이유는 외부로부터 데이터를 보호하기 위함과 외부에는 필요하지않은 <br>내부적으로 작용하는 부분을 감추고 복잡성을 줄이기 위해서이다.</li>
+            <li><p>클래스의 멤버 또는 클래스에 사용되며 외부에서 접근하지 못하도록 하는 역할을 한다.</p></li>
+            <li><p>public:접근제한이 없다</p></li>
+            <li><p>protected:같은 패키지 내에서 또는 다른 패키지의 자손클래스에서 접근이 가능하다</p></li>
+            <li><p>default:같은 패키지 내에서 접근이 가능하다</p></li>
+            <li><p>private:같은 클래스 내에서만 접근이 가능하다.</p></li>
+            <li><p>접근 제어자를 사용하는 이유는 외부로부터 데이터를 보호하기 위함과 외부에는 필요하지않은 <br>내부적으로 작용하는 부분을 감추고 복잡성을 줄이기 위해서이다.</p></li>
           </ul>
             <li><h3>이 외 제어자(CONTINUE)</h3></li>
           </ol>
           <li><h2>다형성</h2></li>
+          <ol>
+            <li><h3>다형성</h3></li>
+          <ul>
+            <li><p>다형성이란 여러가지 형태를 가질 수 있는 능력을 의미하며 한 타입의 참조변수로 여러 객체를 참조할 수 있다.</p></li>
+            <li><p>부모 타입의 참조변수는 자손클래스의 인스턴스를 참조할 수 있다.</p></li>
+            <li><p>자손 타입의 참조변수는 부모클래스의 인스턴스를 참조할 수 없다.</p></li>
+            <li><p>자손 클래스의 인스턴스를 참조하여 멤버들의 호출을 제한해 복잡성을 줄일 수도 있다.</p></li>
+              </ul>
+            <li><h3>참조변수의 형변환</h3></li>
+            <ul>
+              <li><p>참조변수는 상속관계에 있는 클래스사이에 형변환만 가능하다.</p></li>
+              <li><p>자손타입->부모타입(UP-casting)</p></li>
+              <li><p>부모타입->자손타입(DWON-casting)</p></li>
+              <li><p>참조변수가 가르키는 인스턴스의 자손타입으로 형변환은 가능하지않다</p></li>
+              <li><p> A instanceof B: A라는 참조변수가 B타입으로 형변환이 가능하면 TRUE 그렇지 않으면 FALSE를 반환한다.</p></li>
+            </ul>
+            <pre class ="prettyprint"><code>
+ class root{
+	 void root_print() {
+		 System.out.println("root");
+	 }
+ }
+ class parent extends root{
+	 void parent_print() {
+		 System.out.println("parent");
+	 }
+ }
+ class child extends parent{
+	 void child_print() {
+		 System.out.println("child");
+	 }
+ }
+ public class Main {
+
+	 public static void main(String[] args) {
+
+		 child child_ref = new child();
+		 //참조할 수 있는 멤버
+		 child_ref.root_print();
+		 child_ref.parent_print();
+		 child_ref.child_print();
+
+		 parent pt = child_ref;//조상타입의 참조변수가 자손인스턴스를 참조
+		 //참조할 수 있는 멤버
+		 pt.root_print();
+		 pt.parent_print();
+
+		 root rt = child_ref;//조상타입의 참조변수가 자손인스턴스를 참조
+		 //참조할 수 있는 멤버
+		 rt.root_print();
+
+		 //==> 하나의 인스턴스에 다른타입의 참조변수들이 참조중!
+
+		 parent parent_ref = new parent();
+
+		 //child ct = (child)parent_ref; ->에러! 자손타입의 참조변수는 조상인스턴스를 참조할 수 없음.
+		 child ct =null;
+		 if(ct instanceof parent) {
+			 ct = (child)parent_ref;
+			 System.out.println("True");
+
+		 }
+                /*실행결과
+                root
+                parent
+                child
+                root
+                parent
+                root
+                */
+	 }
+ }
+            </code></pre>
+
+          </ol>
         </ul>
         </div>
       </div>
