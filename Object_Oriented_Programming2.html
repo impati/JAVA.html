@@ -353,7 +353,91 @@
 
             </code></pre>
             <li><h3>여러 종류의 객체를 배열로 다루기.</h3></li>
-            <ul></ul>
+            <ul>
+              <li>부모타입의 참조변수로 자손타입의 객체를 참조하는 것이 가능하므로 <br>부모타입의 참조변수 배열을 사용해서 서로 다른 종류의 객체를 다룰 수 있다.</li>
+            </ul>
+            <pre class ="prettyprint"><code>
+   class Product{
+	 int price;
+	 Product(int price){
+		 this.price=price;
+	 }
+	 void print() {}
+ }
+ class Tv extends Product{
+	 Tv(int price){
+		 super(price);
+	 }
+	 void print() {
+		 System.out.print("TV ");
+	 }
+ }
+ class Computer extends Product{
+	 Computer(int price){
+		 super(price);
+	 }
+	 void print() {
+		 System.out.print("Computer ");
+	 }
+ }
+ class Audio extends Product{
+	 Audio(int price){
+		 super(price);
+	 }
+	 void print() {
+		 System.out.print("Audio ");
+	 }
+ }
+ class Buyer{
+	 int has_money;
+	 int has_count=0;
+	 Product p[] = new Product[10];
+	 Buyer(int money){
+		 has_money=money;
+	 }
+	 void buy(Product ref) {
+		 ref.print();
+		 if(has_money>=ref.price) {
+			 has_money-=ref.price;
+			 //ref가 가르키는 인스턴스는 다르지만 부모타입의 참조변수 배열로 다룰 수 있다.
+			 p[has_count++]=ref;
+			 System.out.println("구입성공");
+		 }
+		 else {
+			 System.out.println("돈이 부족합니다");
+		 }
+	 }
+	 void state() {
+		 System.out.println("현재 가지고 있는 돈: "+has_money);
+	 }
+ }
+
+  public class Main {
+
+	  public static void main(String[] args) {
+		  Audio item1 = new Audio(20);
+		  Computer item2 = new Computer(100);
+		  Tv item3 = new Tv(150);
+
+		  Buyer b = new Buyer(260);
+		  b.buy(item2);
+		  b.buy(item3);
+		  b.buy(item1);
+		  System.out.print("구매목록:");
+		  for(int i=0;i<<span>b.has_count;i++) {
+			  b.p[i].print();
+		  }
+            /* 출력결과
+            Computer 구입성공
+            TV 구입성공
+            Audio 돈이 부족합니다
+            구매목록:Computer TV
+            */
+
+	  }
+  }
+
+            </code></pre>
           </ol>
         </ul>
         </div>
