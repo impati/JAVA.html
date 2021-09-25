@@ -439,6 +439,58 @@
 
             </code></pre>
           </ol>
+            <h2><li>추상클래스</li></h2>
+            <ul>
+            <p><li>미완성 메서드(추상 메서드)를 포함하고 있는 클래스 </li></p>
+            <p><li>메서드나 클래스에 abstract키워드를 사용해주면 된다. </li><p>
+            <p><li>인스턴스를 생성할 수 없으며 상속을 통해 자손클래스에 의해 완성될 수 있다.</li></p>
+            <li><h3>추상 메서드</h3><ll>
+              <ul>
+                <p><li>메서드의 선언부만 작성하고 구현부는 작성하지 않는다.</li></p>
+                <p><li>abstract키워드를 사용함으로써 자손클래스에서 구현을 강제한다.</li></p>
+                <p><li>상속받은 추상메서드를 구현하지않는다면 추상클래스로 지정해주어야한다.</li></p>
+              </ul>
+              <pre class ="prettyprint"><code>
+//추상메서드를 포함하고 있는 추상클래스 Product
+ abstract class Product{
+	 abstract public void print();//추상메서드선언
+ }
+ class Computer extends Product{
+	 public void print() {
+		 System.out.println("Computer");//상속받은 추상메서드를 구현
+	 }
+ }
+ class Notebook extends Product{
+	 public void print() {
+		 System.out.println("Notebook");//상속받은 추상메서드를 구현
+	 }
+ }
+ class Phone extends Product{
+	 public void print() {
+		 System.out.println("Phone");//상속받은 추상메서드를 구현
+	 }
+ }
+  public class Main {
+
+	  public static void main(String[] args) {
+		 // Product p = new Product();추상클래스는 인스턴스를 생성할 수 없음.
+		 Product p[] = new Product[3];
+		 p[0] = new Computer();
+		 p[1] = new Notebook();
+		 p[2] = new Phone();
+		 for(int i=0;i<<span>3;i++) {
+	  	   p[i].print();
+		 }
+		 /*출력결과
+		 Computer
+		 Notebook
+		 Phone
+		 */
+	  }
+  }
+
+              </code></pre>
+          </ul>
         </ul>
         </div>
       </div>
