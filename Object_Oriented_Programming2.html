@@ -488,9 +488,105 @@
     }
   }
               </code></pre>
-        </ul>
+              </ul>
+              <h2><li>인터페이스</li></h2>
+              <ul>
+                <h3>인터페이스란?</h3>
+                <ul>
+                  <li><p>추상메서드와 상수만을 정의할 수 있는 추상클래스</p></li>
+                  <li><p>implements를 받는 클래스는 인터페이스가 가지고 있는 메서드를 모두 구현해야한다.</p></li>
+                  <li><p>추상클래스보다 추상화정도가 심하다</p></li>
+                </ul>
+                <h3>인터페이스 구현</h3>
+                <ul>
+                <li><p>상수와 추상메서드만을 정의할 수 있다.</p></li>
+                <li><p>모든 변수는 public static final 이어야 하며 생략가능하다.</p></li>
+                <li><p>모든 추상메서드는 public abstract 이어야 하며 생략가능하다.</p></li>
+                <li><p>인터페이스는 여러개의 인터페이스로 부터 상속받을 수 있다.</p></li>
+                </ul>
+                <pre class ="prettyprint"><code>
+ interface usable1 {
+
+	  static final int SIZE = 100;//상수 선언가능.
+	  public abstract void print1();//추상클래스
+	  public abstract void print2();//추상클래스
+	  public abstract void print3();//추상클래스
+
+ }
+ interface usable2 {
+
+	  static final int SIZE = 200;//상수 선언가능.
+	  public abstract void print4();//추상클래스
+	  public abstract void print5();//추상클래스
+	  public abstract void print6();//추상클래스
+
+ }
+ //다중 상속 가능.
+ interface usable extends usable1,usable2{
+	  static final int SIZE = 300;//상수 선언가능.
+ }
+ class tmp implements usable{
+
+	 void use_final_variable() {
+		 //SIZE 상수 구별
+		 System.out.println(usable.SIZE);
+		 System.out.println(usable1.SIZE);
+		 System.out.println(usable2.SIZE);
+	 }
+	 //반드시 구현
+	 public void print1() {
+		 System.out.println("print1");
+	 }
+	 public void print2() {
+		 System.out.println("print2");
+	 }
+	 public void print3() {
+		 System.out.println("print3");
+	 }
+	 public void print4() {
+		 System.out.println("print4");
+	 }
+	 public void print5() {
+		 System.out.println("print5");
+	 }
+	 public void print6() {
+		 System.out.println("print6");
+	 }
+ }
+  public class Main {
+
+	  public static void main(String[] args) {
+		 tmp t =new  tmp();
+		 t.use_final_variable();
+		 t.print1();
+		 t.print2();
+		 t.print3();
+		 t.print4();
+		 t.print5();
+		 t.print6();
+		 /*
+		  * 출력결과
+		  * 300
+		  * 100
+		  * 200
+		  * print1
+		  * print2
+		  * print3
+		  * print4
+		  * print5
+		  * print6
+		  */
+	  }
+  }
+
+                </code></pre>
+
+              </ul>
+
+
+
+
           </ol>
-             </ul>
              </div>
            </div>
          <div class ="bound">
