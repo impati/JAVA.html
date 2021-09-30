@@ -438,7 +438,6 @@
   }
 
             </code></pre>
-          </ol>
             <h2><li>추상클래스</li></h2>
             <ul>
             <p><li>미완성 메서드(추상 메서드)를 포함하고 있는 클래스 </li></p>
@@ -453,55 +452,52 @@
               <pre class ="prettyprint"><code>
 //추상메서드를 포함하고 있는 추상클래스 Product
  abstract class Product{
-	 abstract public void print();//추상메서드선언
+   abstract public void print();//추상메서드선언
  }
  class Computer extends Product{
-	 public void print() {
-		 System.out.println("Computer");//상속받은 추상메서드를 구현
-	 }
+   public void print() {
+     System.out.println("Computer");//상속받은 추상메서드를 구현
+   }
  }
  class Notebook extends Product{
-	 public void print() {
-		 System.out.println("Notebook");//상속받은 추상메서드를 구현
-	 }
+   public void print() {
+     System.out.println("Notebook");//상속받은 추상메서드를 구현
+   }
  }
  class Phone extends Product{
-	 public void print() {
-		 System.out.println("Phone");//상속받은 추상메서드를 구현
-	 }
+   public void print() {
+     System.out.println("Phone");//상속받은 추상메서드를 구현
+   }
  }
   public class Main {
 
-	  public static void main(String[] args) {
-		 // Product p = new Product();추상클래스는 인스턴스를 생성할 수 없음.
-		 Product p[] = new Product[3];
-		 p[0] = new Computer();
-		 p[1] = new Notebook();
-		 p[2] = new Phone();
-		 for(int i=0;i<<span>3;i++) {
-	  	   p[i].print();
-		 }
-		 /*출력결과
-		 Computer
-		 Notebook
-		 Phone
-		 */
-	  }
+    public static void main(String[] args) {
+     // Product p = new Product();추상클래스는 인스턴스를 생성할 수 없음.
+     Product p[] = new Product[3];
+     p[0] = new Computer();
+     p[1] = new Notebook();
+     p[2] = new Phone();
+     for(int i=0;i<<span>3;i++) {
+         p[i].print();
+     }
+     /*출력결과
+     Computer
+     Notebook
+     Phone
+     */
+    }
   }
-
               </code></pre>
-          </ul>
         </ul>
-        </div>
-      </div>
-    <div class ="bound">
-    </div>
-  </div>
-  <div class ="right">
-    </div>
-  </div>
-
-  </body>
-
-
-</html>
+          </ol>
+             </ul>
+             </div>
+           </div>
+         <div class ="bound">
+         </div>
+       </div>
+       <div class ="right">
+         </div>
+       </div>
+       </body>
+     </html>
