@@ -588,6 +588,63 @@
                   <li><p>인터페이스 타입의 매개변수는 해당 인터페이스를 구현한 클래스의 인스턴스를 매개변수로 제공해야한다 </p></li>
                   <li><p>공통의 기능을 가지길 원하는 클래스를 해당 인터페이스로 구현하도록 한다.</p></li>
                 </ul>
+                <pre class ="prettyprint"><code>
+ interface Repairable{}
+ class Unit{
+	 int power;
+	 int HP;
+	 {HP = 100;};
+	 Unit(int power){
+		 this.power=power;
+	 }
+ }
+ class GroundUnit extends Unit{
+	 GroundUnit(int power){
+		 super(power);
+	 }
+ }
+ class  AirUnit extends Unit{
+	  AirUnit(int power){
+		  super(power);
+	 }
+ }
+ class Tank extends GroundUnit implements Repairable{
+	 Tank(){
+		 super(200);
+		 HP=300;
+	 }
+ }
+ class Dropship extends AirUnit implements Repairable{
+	 Dropship(){
+		 super(10);
+		 HP=1000;
+	 }
+ }
+ class SCV extends GroundUnit implements Repairable{
+	 SCV(){
+		 super(50);
+	 }
+	 void  repair(Repairable ref) {
+		 //Unit이 Repairable를 구현해야하는 클래스의 인스턴스라면
+		 if(ref instanceof Unit) {
+			 Unit p = (Unit)ref;
+			 p.HP++;
+			 System.out.println("수리완료");
+		 }
+	 }
+ }
+  public class Main {
+
+	  public static void main(String[] args) {
+		 Tank t = new Tank();
+		 Dropship ship =new Dropship();
+		 SCV scv =new SCV();
+		 scv.repair(t);
+		 scv.repair(ship);
+	  }
+  }
+
+                </code></pre>
 
 
 
